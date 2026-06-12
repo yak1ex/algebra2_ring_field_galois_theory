@@ -23,3 +23,73 @@ $$
 という形で解釈できる
 
 $G$ の元にどの $A$ の元を割り当てるかということになるので写像とみなせることはわかったけど、初学者には分かりづらいだけなのでは
+
+#### 定義1.1.8 環の準同型　で乗法単位元だけ条件がある理由
+
+(1) より $\phi(0_A)=\phi(0_A+0_A)=\phi(0_A)+\phi(0_A)$ で $B$ は群でもあるから加法逆元があるので $\phi(0_A)=0_B$ が言える。
+(2) から $\phi(1_A)=\phi(1_A\cdot1_A)=\phi(1_A)\cdot\phi(1_A)$ までは言えるけど環は乗法逆元を要求しないのでここから先が言えない。
+
+$\phi(1_A)\neq1_B$ だとなにか困るのか
+
+少なくとも $a\in A$ の単元として $\phi(a^{-1})=\phi(a)^{-1}$ は一般には成立しない。したがって $\phi$ は $A^\times\to\mathrm{Im}(\phi)$ の群準同型も誘導しない。
+$\phi(1_A)=\phi(a\cdot a^{-1})=\phi(a)\cdot\phi(a^{-1})$ これが $1_B$ だったら $\phi(a^{-1})=\phi(a)^{-1}$ になるけどそうならない。
+
+#### $\mathrm{Aut^{alg}}A$ と書く理由がわからない( $\mathrm{alg}$ 要る？)
+
+### 1.2 多項式環・整域
+
+#### 定義1.2.4 $f(x)=0$ なら $\deg f(x)=-\infty$
+
+命題1.2.10 (2) より $\deg(f(x)g(x))=\deg f(x)+\deg g(x)$ で $f(x)=0$ とすると $\deg f(x)=\deg f(x)+\deg g(x)$ となるので $\deg f(x)$ は $\pm\infty$ でなければならない。一方、命題1.2.10 (1) より $\deg (f(x)+g(x))\le\max\lbrace\deg f(x),\deg g(x)\rbrace$ で $f(x)=0$ とすると $\deg (g(x))\le\max\lbrace\deg f(x),\deg g(x)\rbrace$ なので $\deg f(x)=-\infty$ 側でなくてはならない。
+
+#### 命題1.2.22 $\phi(d)=d$ なので
+
+$\phi:A\lbrack x\rbrack\to A$ なので $\phi(d)$ の $d$ は多項式としての $d$ (つまり定数項)である。 $x$ に何を代入しても定数項 $d$ は $d$ のまま。 
+
+#### 命題1.2.31 ここがポイント
+
+$f_{d_1}(x)g_{d_2}(x)\neq0$ なので次数 $d_1+d_2$ の項は存在している。残りの $f_l(x)g_m(x)$ の次数 $l+m\lt d_1+d_2$ なので $f(x)g(x)$ の次数は 確かに $d_1+d_2$
+
+#### 系1.2.32
+
+系1.2.32だと $A\lbrack x_1,\cdots,x_n\rbrack\subset A^\times$ しか言ってないけど、 $A^\times$ の元が $A\lbrack x_1,\cdots,x_n\rbrack^\times$ の元になるのは明らかなので一致すると言っている。
+
+#### 系1.2.32の下 $A=\mathbb{Z}/4\mathbb{Z},f(x)=\bar{1}+\bar{2}x\in A\lbrack x\rbrack$ なら $f(x)^2=\bar{1}$ よって $A\lbrack x\rbrack^\times\neq A^\times$
+
+$f(x)\in A\lbrack x\rbrack^\times$ だが $f(x)\notin A$ なので当然 $f(x)\notin A^\times$
+$A$ が整域じゃない場合に系1.2.32が成立しない実例
+
+### 演習問題 1.1
+
+#### 1.1.1
+
+$\sigma_2\sigma_6=(1 2)(1 3 2)=(3 1)=\sigma_3$
+$\sigma_2\sigma_4=(1 2)(2 3)=(3 1 2)=\sigma_5$
+$\sigma_2^2=(1 2)(1 2)=1$
+$\sigma_5\sigma_6=(1 2 3)(1 3 2)=1$
+$\sigma_5\sigma_4=(1 2 3)(2 3)=(2 1)=\sigma_2$
+$\sigma_5\sigma_2=(1 2 3)(1 2)=(1 3)=\sigma_3$
+
+なので
+
+$$
+\begin{array}{lll}
+gh&=&(1-2\sigma_2+3\sigma_5)(3\sigma_6-2\sigma_4+\sigma_2)\\
+&=&3\sigma_6-2\sigma_4+\sigma_2-6\sigma_2\sigma_6+4\sigma_2\sigma_4-2\sigma_2^2+9\sigma_5\sigma_6-6\sigma_5\sigma_4+3\sigma_5\sigma_2\\
+&=&3\sigma_6-2\sigma_4+\sigma_2-6\sigma_3+4\sigma_5-2+9-6\sigma_2+3\sigma_3\\
+&=&7-5\sigma_2-3\sigma_3-2\sigma_4+4\sigma_5+3\sigma_6
+\end{array}
+$$
+
+#### 1.1.2
+
+$h\in G$ について左から $g$ をかける写像 $f:G\ni h\mapsto gh\in G$ を考えると $f(h_1)=f(h_2)\Rightarrow gh_1=gh_2\Rightarrow h_1=h_2$ なので $f$ は単射。 $f$ の始域と終域はともに有限集合 $G$ なので $f$ は全単射となる(I 命題1.1.7(2))。
+
+よって、 $gN=g\sum_{h\in G}h=\sum_{h\in G}gh=\sum_{h\in G}f(h)=\sum_{h\in G}h=N$
+
+$Ng$ についても右から $g$ をかける写像を考えれば全単射となるので同様である。
+
+#### 1.1.3
+
+$2a+b=2+6\sqrt{-2}+2-\sqrt{-2}=4+5\sqrt{-2}$
+$ab=(1+3\sqrt{-2})(2-\sqrt{-2})=8+5\sqrt{-2}$
